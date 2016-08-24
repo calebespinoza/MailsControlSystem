@@ -1,0 +1,56 @@
+﻿@model MailsControlSystem.Models.IOMailWrapperModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<fieldset>
+    <legend>Envío</legend>
+    <div class="display-label">
+        Remitente</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.incoming.UserAccount.Person.FullName)
+    </div>
+    <div class="display-label">
+        Destinatario</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.UserAccount.Person.FullName)
+    </div>
+    <div class="display-label">
+        Fecha Envío</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.SendDate)
+    </div>
+    <div class="display-label">
+        Hora de Envío</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.SendTime)
+    </div>
+    <div class="display-label">
+        Cantidad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.Quanty)
+    </div>
+    <div class="display-label">
+        Descripción</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.Description)
+    </div>
+    <div class="display-label">
+        Ciudad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.City)
+    </div>
+    <div class="display-label">
+        Observaciones</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.Observations)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", "IOMail", new { id = Model.outcoming.OutcomingID }, null) |
+    @Html.ActionLink("Atrás", "Index", "Outcoming")
+</p>
+

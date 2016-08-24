@@ -1,0 +1,22 @@
+﻿@model MailsControlSystem.Models.IOMailWrapperModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Los datos eliminados afectarán el registro de Envíos y Recepciones</legend>
+</fieldset>
+
+    @Html.HiddenFor(model => model.outcoming.OutcomingID)
+        @Html.HiddenFor(model => model.incoming.IncomingID)
+        @Html.HiddenFor(model => Model.mail.MailID)
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("Volver a la Lista", "Index","IOMail")
+    </p>
+}

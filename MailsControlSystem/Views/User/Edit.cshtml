@@ -1,0 +1,119 @@
+﻿@model MailsControlSystem.Models.Person
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Datos de Usuario</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Usuario</legend>
+
+        @Html.HiddenFor(model => model.PersonID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdentityNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdentityNumber)
+            @Html.ValidationMessageFor(model => model.IdentityNumber)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MobilePhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MobilePhone)
+            @Html.ValidationMessageFor(model => model.MobilePhone)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Region)
+        </div>
+        <div class="editor-field">
+            <!--@Html.EditorFor(model => model.Region) -->
+            @Html.DropDownListFor(model => model.Region, new[] {
+                new SelectListItem() {Text = "Cochabamba", Value = "Cochabamba"},
+                new SelectListItem() {Text = "Santa Cruz", Value = "Santa Cruz"},
+                new SelectListItem() {Text = "La Paz", Value = "La Paz"},
+                new SelectListItem() {Text = "Oruro", Value = "Oruro"},
+                new SelectListItem() {Text = "Sucre", Value = "Sucre"},
+                new SelectListItem() {Text = "Potosí", Value = "Potosí"}                                
+                    }, "Seleccione una opción")
+            @Html.ValidationMessageFor(model => model.Region)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserAccount.Positions)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserAccount.Positions)
+            @Html.ValidationMessageFor(model => model.UserAccount.Positions)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserAccount.ListAccountStatus)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.UserAccount.AccountStatus, new[] {
+                new SelectListItem() {Text = "Habilitado", Value = "1"},
+                new SelectListItem() {Text = "Deshabilitado", Value = "2"}                                
+                    })
+            @Html.ValidationMessageFor(model => model.UserAccount.ListAccountStatus.UserStatusDescription)        
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserAccount.ListRole)
+        </div>
+        <div class="editor-field">         
+            @Html.DropDownListFor(model => model.UserAccount.Role, new[] {
+                new SelectListItem() {Text = "Administrador", Value = "1"},
+                new SelectListItem() {Text = "Recepción", Value = "2"},
+                new SelectListItem() {Text = "Enlace", Value = "3"},
+                new SelectListItem() {Text = "Personal CIB", Value = "4"} 
+                    })
+            @Html.ValidationMessageFor(model => model.UserAccount.ListRole.RoleName)
+        </div>
+        <div>
+            @Html.HiddenFor(model => model.UserAccount.Password)
+        </div>
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver a la Lista", "Index")
+</div>

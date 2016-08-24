@@ -1,0 +1,68 @@
+﻿@model MailsControlSystem.Models.Person
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+<h2>Borrar Cuenta de Usuario</h2>
+
+<h3>¿Está seguro de borrar esta cuenta?</h3>
+<fieldset>
+    <legend>Cuenta de Usuario</legend>
+
+    <div class="display-label">Nombre</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Apellido Paterno</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">Apellido Materno</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">Carnet de Identidad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdentityNumber)
+    </div>
+
+    <div class="display-label">Correo Electrónico</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Celular</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MobilePhone)
+    </div>
+
+    <div class="display-label">Región</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+    <div class="display-label">Cargo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserAccount.Positions)
+    </div>
+    <div class="display-label">Cuenta</div>
+    <div class="display field">
+        @Html.DisplayFor(model => model.UserAccount.Account)
+    </div>
+    <div class="display-label">Privilegios</div>
+    <div class="display field">
+        @Html.DisplayFor(model => model.UserAccount.ListRole.RoleName)
+    </div>
+    <div class="display-label">Estado</div>
+    <div class="display field">
+        @Html.DisplayFor(model => model.UserAccount.ListAccountStatus.UserStatusDescription)
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("Volver a la lista", "Index")
+    </p>
+}

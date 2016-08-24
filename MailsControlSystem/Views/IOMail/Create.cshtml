@@ -1,0 +1,87 @@
+﻿@model MailsControlSystem.Models.IOMailWrapperModel
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Añadir Envío de Correspondencia</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Formulario de Envio</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.mail.GuideNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.mail.GuideNumber)
+            @Html.ValidationMessageFor(model => model.mail.GuideNumber)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.incoming.From)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("From", "-Remitente-")
+            @Html.ValidationMessageFor(model => model.incoming.From)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.outcoming.To)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("To", "-Destinatario-")
+            @Html.ValidationMessageFor(model => model.outcoming.To)
+        </div>
+        @Html.HiddenFor(model => model.outcoming.SendDate, new { Value = DateTime.Now.ToShortDateString() })
+        @Html.HiddenFor(model => model.outcoming.SendTime, new { Value = DateTime.Now.ToShortTimeString() })
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.outcoming.Quanty)
+        </div>
+        
+        <div class="editor-field">
+            @Html.EditorFor(model => model.outcoming.Quanty)
+            @Html.ValidationMessageFor(model => model.outcoming.Quanty)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.outcoming.Description)
+        </div>
+        
+        <div class="editor-field">
+            @Html.EditorFor(model => model.outcoming.Description)
+            @Html.ValidationMessageFor(model => model.outcoming.Description)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.outcoming.City)
+        </div>
+        
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.outcoming.City, new[] {
+                new SelectListItem() {Text = "Cochabamba", Value = "Cochabamba"},
+                new SelectListItem() {Text = "Santa Cruz", Value = "Santa Cruz"},
+                new SelectListItem() {Text = "La Paz", Value = "La Paz"},
+                new SelectListItem() {Text = "Oruro", Value = "Oruro"},
+                new SelectListItem() {Text = "Sucre", Value = "Sucre"},
+                new SelectListItem() {Text = "Potosí", Value = "Potosí"}                                
+                    }, "--Ciudad--")
+            @Html.ValidationMessageFor(model => model.outcoming.City)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.outcoming.Observations)
+        </div>
+        
+        <div class="editor-field">
+            @Html.EditorFor(model => model.outcoming.Observations)
+            @Html.ValidationMessageFor(model => model.outcoming.Observations)
+        </div>
+        <p>
+            <input type="submit" value="Añadir" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Volver a la Lista", "Index", "IOMail")
+</div>

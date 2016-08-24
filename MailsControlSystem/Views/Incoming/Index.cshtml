@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MailsControlSystem.Models.IOMailWrapperModel>
+@{
+    ViewBag.Title = "Lista";
+}
+<h2>Lista de Recepción de Correspondencia</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por Nro de Guía: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="Buscar" />
+    </p>
+}
+<table>
+    <tr>
+        <th>
+            Fecha Recepcíon
+        </th>
+        <th>
+            Hora Recepcíon
+        </th>
+        <th>
+            Guía
+        </th>
+        <th>
+            Remitente
+        </th>
+        <th>
+            Destinatario
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Obs. Envío
+        </th>
+        <th>
+            Cant. Enviada
+        </th>
+        <th>
+            Cant. Recibida
+        </th>
+        <th>
+            Obs. Recepción
+        </th>
+        <th>
+            Estado del Pedido
+        </th>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.incoming.IncomingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.incoming.IncomingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mail.GuideNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.incoming.UserAccount.Person.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.outcoming.UserAccount.Person.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.incoming.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.outcoming.Observations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.outcoming.Quanty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.incoming.Quanty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.incoming.Observations)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.mail.ListMailStatus.MailStatusDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Registrar Recepción", "Edit", new { id = item.incoming.IncomingID }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.IncomingID }, null) |*@
+                @*@Html.ActionLink("Borrar", "Delete", "IOMail", new { id = item.incoming.IncomingID }, null)*@
+            </td>
+            
+        </tr>
+    }
+</table>

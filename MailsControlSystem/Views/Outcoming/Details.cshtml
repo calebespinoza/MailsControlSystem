@@ -1,0 +1,48 @@
+﻿@model MailsControlSystem.Models.Outcoming
+@{
+    ViewBag.Title = "Detalles";
+}
+<h2>
+    Detalle</h2>
+<fieldset>
+    <legend>Envío</legend>
+    <div class="display-label">
+        Remitente</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserAccount.Person.FullName)
+    </div>
+    <div class="display-label">
+        Fecha Envío</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SendDate)
+    </div>
+    <div class="display-label">
+        Hora de Envío</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SendTime)
+    </div>
+    <div class="display-label">
+        Cantidad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quanty)
+    </div>
+    <div class="display-label">
+        Descripción</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <div class="display-label">
+        Ciudad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+    <div class="display-label">
+        Observaciones</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Observations)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OutcomingID }) |
+    @Html.ActionLink("Atrás", "Index")
+</p>

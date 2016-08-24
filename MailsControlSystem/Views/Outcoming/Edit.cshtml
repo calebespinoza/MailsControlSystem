@@ -1,0 +1,83 @@
+﻿@model MailsControlSystem.Models.Outcoming
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Outcoming</legend>
+
+        @Html.HiddenFor(model => model.OutcomingID)
+  
+        <div class="editor-label">
+            @Html.LabelFor(model => model.To, "UserAccount")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("To", String.Empty)
+            @Html.ValidationMessageFor(model => model.To)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SendDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SendDate)
+            @Html.ValidationMessageFor(model => model.SendDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SendTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SendTime)
+            @Html.ValidationMessageFor(model => model.SendTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quanty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quanty)
+            @Html.ValidationMessageFor(model => model.Quanty)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>        
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Observations)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Observations)
+            @Html.ValidationMessageFor(model => model.Observations)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

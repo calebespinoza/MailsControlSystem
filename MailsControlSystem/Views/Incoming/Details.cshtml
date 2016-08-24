@@ -1,0 +1,58 @@
+﻿@model MailsControlSystem.Models.IOMailWrapperModel
+@{
+    ViewBag.Title = "Details";
+}
+<h2>
+    Detalle</h2>
+<fieldset>
+    <legend>Recepción</legend>
+    <div class="display-label">
+        Remitente</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.incoming.UserAccount.Person.FullName)
+    </div>
+    <div class="display-label">
+        Destinatario</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.UserAccount.Person.FullName)
+    </div>
+    <div class="display-label">
+        Fecha Recepción</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.incoming.IncomingDate)
+    </div>
+    <div class="display-label">
+        Hora de Recepción</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.incoming.IncomingTime)
+    </div>
+    <div class="display-label">
+        Estado del Pedido</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.mail.ListMailStatus.MailStatusDescription)
+    </div>
+    <div class="display-label">
+        Cantidad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.Quanty)
+    </div>
+    <div class="display-label">
+        Descripción</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.Description)
+    </div>
+    <div class="display-label">
+        Ciudad</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.City)
+    </div>
+    <div class="display-label">
+        Observaciones</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.outcoming.Observations)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.outcoming.OutcomingID }) |
+    @Html.ActionLink("Atrás", "Index", "Outcoming")
+</p>

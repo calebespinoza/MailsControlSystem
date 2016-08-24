@@ -1,0 +1,53 @@
+﻿@model MailsControlSystem.Models.IOMailWrapperModel
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>
+    Editar Recepción de Correspondencia</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Formulario</legend>
+        @Html.HiddenFor(model => model.outcoming.OutcomingID)
+        @Html.HiddenFor(model => model.incoming.IncomingID)
+        @Html.HiddenFor(model => model.mail.MailID)
+        @Html.HiddenFor(model => model.outcoming.Quanty)
+        @Html.HiddenFor(model => model.outcoming.Observations)
+        @Html.HiddenFor(model => model.outcoming.City)
+        @Html.HiddenFor(model => model.outcoming.Description)
+        @Html.HiddenFor(model => model.outcoming.SendDate)
+        @Html.HiddenFor(model => model.outcoming.SendTime)
+        @Html.HiddenFor(model => model.incoming.Description)
+        @Html.HiddenFor(model => model.incoming.IncomingDate)
+        @Html.HiddenFor(model => model.incoming.IncomingTime)
+        @Html.HiddenFor(model => model.mail.GuideNumber)
+        @Html.HiddenFor(model => model.incoming.From)
+        @Html.HiddenFor(model => model.outcoming.To)
+        @*@Html.HiddenFor(model => model.outcoming.UserAccount)
+        @Html.HiddenFor(model => model.incoming.UserAccount)*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.incoming.Quanty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.incoming.Quanty)
+            @Html.ValidationMessageFor(model => model.incoming.Quanty)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.incoming.Observations)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.incoming.Observations)
+            @Html.ValidationMessageFor(model => model.incoming.Observations)
+        </div>
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Volver a la Lista", "Index", "Incoming")
+</div>

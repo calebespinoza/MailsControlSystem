@@ -1,0 +1,25 @@
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.dll
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.pdb
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\bin\EntityFramework.dll
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\bin\EntityFramework.xml
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.dll
+C:\Users\IT-DEVELOPER\Desktop\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.pdb
+C:\Disco  OSO\CESPINOZA\Project\v8(Mail CRUD)\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.dll
+C:\Disco  OSO\CESPINOZA\Project\v8(Mail CRUD)\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.pdb
+C:\Disco  OSO\CESPINOZA\Project\v8(Mail CRUD)\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.dll
+C:\Disco  OSO\CESPINOZA\Project\v8(Mail CRUD)\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.pdb
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.dll
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.pdb
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\bin\EntityFramework.dll
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\bin\EntityFramework.xml
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\obj\Debug\ResolveAssemblyReference.cache
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.dll
+C:\MailsControlSystemProject\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.pdb
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.dll
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\bin\MailsControlSystem.pdb
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\bin\EntityFramework.dll
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\bin\EntityFramework.xml
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\obj\Debug\ResolveAssemblyReference.cache
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.dll
+C:\MailsControlSystemProject\Backup Project\MailsControlSystem\MailsControlSystem\obj\Debug\MailsControlSystem.pdb

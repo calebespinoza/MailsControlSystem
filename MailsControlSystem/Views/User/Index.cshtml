@@ -1,0 +1,110 @@
+﻿@model IEnumerable<MailsControlSystem.Models.Person>
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista de Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Añadir nuevo", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por nombre: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="Buscar" />
+    </p>
+}
+<table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Ap. Paterno
+        </th>
+        <th>
+            Ap. Materno
+        </th>
+        <th>
+            C.I.
+        </th>
+        <th>
+            Correo Electrónico
+        </th>
+        <th>
+            Celular
+        </th>
+        <th>
+            Región
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Cuenta
+        </th>
+        <th>
+            Privilegios
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdentityNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobilePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region)
+        </td>
+        <td>
+            @foreach (var ua in item.UserAccount.Positions) {
+                @Html.DisplayFor(modelItem => ua)
+            }
+        </td>
+        <td>
+            @foreach (var ua in item.UserAccount.Account) {
+                @Html.DisplayFor(modelItem => ua)
+            }
+        </td>
+        <td>
+            @foreach (var ua in item.UserAccount.ListRole.RoleName) {
+                @Html.DisplayFor(modelItem => ua)
+            }
+        </td>
+        <td>
+            @foreach (var ua in item.UserAccount.ListAccountStatus.UserStatusDescription)
+            {
+                @Html.DisplayFor(modelItem => ua)
+            }
+        </td>
+       
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.PersonID }) |
+            @*@Html.ActionLink("Detalles", "Details", new { id = item.PersonID }) |*@
+            @Html.ActionLink("Borrar", "Delete", new { id = item.PersonID })
+        </td>
+    </tr>
+}
+
+</table>

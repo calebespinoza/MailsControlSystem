@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MailsControlSystem.Models.Outcoming>
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista de Envíos</h2>
+
+<p>
+    @Html.ActionLink("Añadir Nuevo", "Create","IOMail")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por Nro de Guía: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="Buscar" />
+    </p>
+}
+
+<table>
+    <tr> 
+        <th>
+            Fecha de Envío
+        </th>
+        <th>
+            Hora de Envío
+        </th> 
+        <th>
+            Guía
+        </th> 
+        <th>
+            Remitente
+        </th>   
+        <th>
+            Destinatario
+        </th>
+        <th>
+            Cant. Enviada
+        </th>
+        <th>
+            Descripción
+        </th>       
+        <th>
+            Destino
+        </th>
+        <th>
+            Observaciones
+        </th>   
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail.GuideNumber)
+        </td>
+        <td>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserAccount.Person.FullName)
+        </td>     
+        <td>
+            @Html.DisplayFor(modelItem => item.Quanty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observations)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit","IOMail", new { id=item.OutcomingID }, null) |
+            @*@Html.ActionLink("Details", "Details", "IOMail",new { id=item.OutcomingID }, null) |*@
+            @Html.ActionLink("Borrar", "Delete", "IOMail", new { id=item.OutcomingID }, null)
+        </td>
+    </tr>
+}
+</table>

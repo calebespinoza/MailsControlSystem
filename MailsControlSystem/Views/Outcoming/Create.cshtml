@@ -1,0 +1,78 @@
+﻿@model MailsControlSystem.Models.Outcoming
+@{
+    ViewBag.Title = "Create";
+}
+<h2>
+    Create</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Outcoming</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mail.GuideNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Mail.GuideNumber)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserAccount.Incoming.ElementAt(0).From)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("To", "-Remitente-")
+            @Html.ValidationMessageFor(model => model.UserAccount.Incoming.ElementAt(0).From)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.To)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("To", "-Destinatario-")
+            @Html.ValidationMessageFor(model => model.To)
+        </div>
+        @Html.HiddenFor(model => model.SendDate, new { Value = DateTime.Now.ToShortDateString() })
+        @Html.HiddenFor(model => model.SendTime, new { Value = DateTime.Now.ToShortTimeString() })
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quanty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quanty)
+            @Html.ValidationMessageFor(model => model.Quanty)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.City, new[] {
+                new SelectListItem() {Text = "Cochabamba", Value = "Cochabamba"},
+                new SelectListItem() {Text = "Santa Cruz", Value = "Santa Cruz"},
+                new SelectListItem() {Text = "La Paz", Value = "La Paz"},
+                new SelectListItem() {Text = "Oruro", Value = "Oruro"},
+                new SelectListItem() {Text = "Sucre", Value = "Sucre"},
+                new SelectListItem() {Text = "Potosí", Value = "Potosí"}                                
+                    }, "--Ciudad--")
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Observations)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Observations)
+            @Html.ValidationMessageFor(model => model.Observations)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
